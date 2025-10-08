@@ -1,17 +1,13 @@
 // components/DestinationSlider.jsx
 'use client'; // This directive makes it a client component
-
+import { Navigation, Pagination } from 'swiper/modules';
+import Image from 'next/image';
 import React from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-// import required modules
-import { Navigation, Pagination } from 'swiper/modules';
-import Image from 'next/image';
 
 // Your destination data
 const destinations = [
@@ -20,7 +16,7 @@ const destinations = [
     image: '/img/desti-1.jpg', // Place your img in the public/img folder
   },
   {
-    name: 'Nice',
+    name: 'London',
     image: '/img/desti-2.jpg',
   },
   {
@@ -43,7 +39,7 @@ export default function DestinationSlider() {
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-4">Our destinations</h2>
         <p className="text-center max-w-2xl mx-auto mb-12">
-          Learn a language, immerse yourself in new cultures, or take your course content abroad in any of our 11 EF Hub locations
+          Learn a language, immerse yourself in new cultures, or take your course content abroad in any of our Study Hub locations
         </p>
 
         <Swiper
@@ -83,16 +79,16 @@ export default function DestinationSlider() {
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                
+
                 {/* Text Content */}
                 <div className="absolute bottom-0 left-0 p-6">
                   <h3 className="text-3xl font-bold">{dest.name}</h3>
                 </div>
 
-                 {/* Arrow icon on hover */}
-                 <div className="absolute bottom-6 right-6 text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    &rarr;
-                 </div>
+                {/* Arrow icon on hover */}
+                <div className="absolute bottom-6 right-6 text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  &rarr;
+                </div>
               </div>
             </SwiperSlide>
           ))}

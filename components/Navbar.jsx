@@ -72,10 +72,10 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-blue-600 rounded-md flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">EF</span>
+                <div className="w-16 h-8 bg-blue-600 rounded-md flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">STUDY</span>
                 </div>
-                <span className="text-xl font-bold text-gray-900">/ STUDY ABROAD</span>
+                <span className="text-xl font-bold text-gray-900">ABROAD</span>
               </Link>
             </div>
 
