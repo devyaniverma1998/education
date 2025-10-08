@@ -24,14 +24,14 @@ export default function Navbar() {
       return (
         <div className="flex-1 overflow-y-auto px-4 py-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-6">Our programs</h2>
-          <ul className="space-y-4">
+          {/* <ul className="space-y-4">
             <li><Link href="/programs/short-term" className="block text-sm text-gray-700 hover:text-blue-600 py-2">Short-term</Link></li>
             <li><Link href="/programs/semester" className="block text-sm text-gray-700 hover:text-blue-600 py-2">Semester</Link></li>
             <li><Link href="/programs/faculty-led" className="block text-sm text-gray-700 hover:text-blue-600 py-2">Faculty-led</Link></li>
             <li><Link href="/programs/europe" className="block text-sm text-gray-700 hover:text-blue-600 py-2">Europe</Link></li>
             <li><Link href="/programs/latin-america" className="block text-sm text-gray-700 hover:text-blue-600 py-2">Latin America</Link></li>
             <li><Link href="/programs/asia" className="block text-sm text-gray-700 hover:text-blue-600 py-2">Asia</Link></li>
-          </ul>
+          </ul> */}
         </div>
       );
     } else if (activeSubMenu === 'about') {
@@ -85,18 +85,18 @@ export default function Navbar() {
               <div className="relative group">
                 <button className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 text-sm font-medium">
                   Our programs
-                  <svg className="h-4 w-4 transition-transform group-hover:-rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {/* <svg className="h-4 w-4 transition-transform group-hover:-rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  </svg> */}
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-10 border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {/* <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-10 border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <Link href="/programs/short-term" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Short-term</Link>
                   <Link href="/programs/semester" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Semester</Link>
                   <Link href="/programs/faculty-led" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Faculty-led</Link>
                   <Link href="/programs/europe" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Europe</Link>
                   <Link href="/programs/latin-america" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Latin America</Link>
                   <Link href="/programs/asia" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Asia</Link>
-                </div>
+                </div> */}
               </div>
 
               {/* About Us Dropdown on Hover */}
@@ -138,7 +138,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center space-x-4">
               <Link
                 href="/login"
-                className="w-10 h-10 flex items-center justify-center text-sm font-medium text-blue-600 border-2 border-blue-600 rounded-full hover:bg-blue-50 transition-colors"
+                className="w-24 h-10 flex items-center justify-center text-sm font-medium text-blue-600 border-2 border-blue-600 rounded-full hover:bg-blue-50 transition-colors"
               >
                 Log in
               </Link>

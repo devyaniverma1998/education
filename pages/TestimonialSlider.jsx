@@ -8,29 +8,29 @@ import "swiper/css/pagination";
 
 const testimonials = [
   {
-    text: "Studying abroad with EF changed my life. I explored new cultures, made friends, and learned lessons beyond the classroom.",
+    text: "Studying abroad with changed my life. I explored new cultures, made friends, and learned lessons beyond the classroom.",
     name: "Joshua A.",
-    role: "EF Study Abroad Student",
+    role: "Study Abroad Student",
   },
   {
-    text: "EF’s exchange program gave me confidence, independence, and global exposure. Meeting people worldwide made learning truly unforgettable.",
+    text: "Study exchange program gave me confidence, independence, and global exposure. Meeting people worldwide made learning truly unforgettable.",
     name: "Sophia L.",
-    role: "EF Study Abroad Student",
+    role: "Study Abroad Student",
   },
   {
-    text: "My EF study trip was life-changing. I discovered new skills, built lifelong friendships, and gained experiences that shaped my future.",
+    text: "My study trip was life-changing. I discovered new skills, built lifelong friendships, and gained experiences that shaped my future.",
     name: "Daniel K.",
-    role: "EF Study Abroad Student",
+    role: "Study Abroad Student",
   },
   {
-    text: "EF made studying abroad seamless and inspiring. The experience expanded my mind, enhanced my learning, and opened doors globally.",
+    text: "Study made studying abroad seamless and inspiring. The experience expanded my mind, enhanced my learning, and opened doors globally.",
     name: "Emma W.",
-    role: "EF Study Abroad Student",
+    role: "Study Abroad Student",
   },
   {
-    text: "Through EF, I explored the world, learned freely, and connected deeply. The memories and growth will stay with me forever.",
+    text: "Through Study, I explored the world, learned freely, and connected deeply. The memories and growth will stay with me forever.",
     name: "Liam R.",
-    role: "EF Study Abroad Student",
+    role: " Study Abroad Student",
   },
 ];
 
@@ -39,9 +39,12 @@ const TestimonialSlider = () => {
   return (
     <section className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12 ">
-          What Our Students Say
-        </h2>
+       
+        <div className="flex items-center justify-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+           What Our Students Say</h2>
+
+        </div>
 
         <Swiper
           modules={[Navigation, Pagination]}
@@ -58,7 +61,7 @@ const TestimonialSlider = () => {
         >
           {testimonials.map((t, idx) => (
             <SwiperSlide key={idx}>
-              <div className="bg-white  rounded-xl shadow-sm hover:shadow-3xl p-6 h-full flex flex-col justify-between transition-shadow duration-300">
+              <div className="bg-white  rounded-xl shadow-sm hover:shadow-3xl p-4 h-full flex flex-col justify-between transition-shadow duration-300">
                 <p className="text-gray-800 text-md italic mb-4">{t.text}</p>
                 <div>
                   <h3 className="text-gray-900 font-bold">{t.name}</h3>

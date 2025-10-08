@@ -37,7 +37,12 @@ export default function DestinationSlider() {
   return (
     <section className="bg-[#1e1e1e] py-12 text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-4">Our destinations</h2>
+
+        <div className="flex items-center justify-center mb-5">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+            Our Destinations</h2>
+
+        </div>
         <p className="text-center max-w-2xl mx-auto mb-12">
           Learn a language, immerse yourself in new cultures, or take your course content abroad in any of our Study Hub locations
         </p>

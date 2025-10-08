@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* EF Study Abroad Column */}
           <div className="md:col-span-1">
             <div className="flex flex-col items-start space-y-4">

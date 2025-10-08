@@ -8,6 +8,9 @@ import SecondBanner from '@/pages/SecondBanner';
 import DestinationSlider from '@/pages/DestinationSlider';
 import ThirdBanner from '@/pages/ThirdBanner';
 import TestimonialSlider from '@/pages/TestimonialSlider';
+import BookSlider from '@/pages/BookSlider';
+import FeaturedPrograms from '@/pages/FeaturedPrograms';
+import ContactForm from '@/pages/ContactForm';
 
 
 
@@ -22,8 +25,11 @@ export default function Home() {
       <SecondBanner />
 
       <DestinationSlider />
-      <ThirdBanner />
+      {/* <ThirdBanner /> */}
       <TestimonialSlider />
+      <BookSlider/>
+      <FeaturedPrograms/>
+      <ContactForm/>
       <Footer />
     </div>
   );

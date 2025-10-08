@@ -13,7 +13,7 @@ const ProgramsGrid = () => {
       id: 1,
       image: "/img/program1.jpg",
       topLink: { href: "/programs/faculty", label: "For Faculty" },
-      bottomLink: { href: "/programs/ef-tandem", label: "EF Tandem" },
+      bottomLink: { href: "/programs/tandem", label: " Tandem" },
     },
     {
       id: 2,
@@ -33,28 +33,15 @@ const ProgramsGrid = () => {
     <section className="relative w-full overflow-hidden bg-white pt-3 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-start mb-12">
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+            Our Programs
+          </h2>
           <Link
             href="/programs"
-            className="inline-flex items-center space-x-2 text-2xl md:text-3xl font-bold text-gray-900 group"
+            className="text-sm font-semibold text-blue-600 hover:text-blue-800"
           >
-            <h2 className="group-hover:text-blue-600 transition-colors duration-300">
-              OUR PROGRAMS
-            </h2>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-blue-600 transform group-hover:translate-x-2 transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 12h14m0 0l-6-6m6 6l-6 6"
-              />
-            </svg>
+            View all
           </Link>
         </div>
 
@@ -158,7 +145,7 @@ const ProgramsGrid = () => {
           ))}
         </div>
 
-        
+
       </div>
     </section>
   );
