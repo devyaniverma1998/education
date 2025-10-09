@@ -28,10 +28,10 @@ const ContactForm = () => {
   return (
     <section className="py-16 bg-black text-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-         <div className="flex items-center justify-center mb-5">
+
+        <div className="flex items-center justify-center mb-5">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-           Contact Us</h2>
+            Contact Us</h2>
 
         </div>
         <p className="text-gray-50 text-center mb-12">
@@ -67,7 +67,7 @@ const ContactForm = () => {
           </div>
 
           {/* New Select Field for Inquiry Type */}
-        
+
 
           <input
             type="text"
@@ -78,7 +78,7 @@ const ContactForm = () => {
             required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
-  <select
+          <select
             name="inquiryType"
             value={formData.inquiryType}
             onChange={handleChange}
