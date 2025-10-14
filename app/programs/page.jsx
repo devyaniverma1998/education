@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ProgramsPage() {
   return (
     <div className="min-h-screen bg-white py-10">

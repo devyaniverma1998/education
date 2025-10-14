@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner/page";
 import ProgramsGrid from "@/components/ProgramsGrid/page";
 import StudyBanner from "@/components/StudyBanner/page";
 import Link from "next/link";
@@ -5,14 +6,10 @@ import Link from "next/link";
 
 export default function AboutPage() {
     return (
+       <>
+        <Banner/>
         <div className=" bg-white py-10">
             <div className="max-w-7xl mx-auto px-4">
-
-                <div className="flex items-center justify-center mb-5">
-                    <h1 className="text-3xl sm:text-4xl font-extrabold text-black">
-                        Who We Are</h1>
-
-                </div>
                 <div className="flex flex-col md:flex-row items-center mb-10">
                     <div className="md:w-1/2 mb-6 md:mb-0">
                         <img
@@ -42,7 +39,7 @@ export default function AboutPage() {
 
 
             </div>
-            <div className="grid bg-black p-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 text-center">
+            <div className="grid bg-black p-10 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 text-center">
                 <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <img style={{ width: '80px', padding: '10px' }}
                         src="/img/business.png"
@@ -82,7 +79,7 @@ export default function AboutPage() {
             </div>
 
             <ProgramsGrid />
-           
-        </div>
+
+        </div></>
     );
 }

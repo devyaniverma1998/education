@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner/page";
 import ContactForm from "@/components/ContactForm/page";
 import DestinationSlider from "@/components/DestinationSlider/page";
 import StudyBanner from "@/components/StudyBanner/page";
@@ -6,14 +7,11 @@ import TeamPage from "@/components/TeamPage/page";
 export default function AbroadPage() {
     return (
         <>
+             <Banner/>
             <div className="min-h-screen bg-white py-10">
                 <div className="max-w-7xl mx-auto px-4">
 
-                    <div className="flex items-center justify-center mb-5">
-                        <h1 className="text-3xl sm:text-4xl font-extrabold text-black">
-                            Diversity Abroad</h1>
-
-                    </div>
+                 
                     <div className="flex flex-col md:flex-row items-center mb-10">
                         <div className="md:w-1/2 mb-6 md:mb-0">
                             <img

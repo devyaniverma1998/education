@@ -4,10 +4,10 @@ import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Link from 'next/link';
 
 // Your destination data
 const destinations = [
@@ -38,11 +38,7 @@ export default function DestinationSlider() {
     <section className="bg-[#1e1e1e] py-12 text-white">
       <div className="container mx-auto px-4">
 
-        <div className="flex items-center justify-center mb-5">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Our Destinations</h2>
-
-        </div>
+     s
         <p className="text-center max-w-2xl mx-auto mb-12">
           Learn a language, immerse yourself in new cultures, or take your course content abroad in any of our Study Hub locations
         </p>
@@ -98,6 +94,13 @@ export default function DestinationSlider() {
             </SwiperSlide>
           ))}
         </Swiper>
+         <div className="mt-10 text-center">
+                    <Link href="/destinations">
+                        <button className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gray-100 text-black hover:bg-gray-200 transition-colors">
+                            See More
+                        </button>
+                    </Link>
+                </div>
       </div>
     </section>
   );
