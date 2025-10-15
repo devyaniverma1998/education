@@ -1,89 +1,71 @@
-'use client';
-import { Navigation, Pagination } from 'swiper/modules';
-import Image from 'next/image';
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import Link from 'next/link';
+"use client";
+import React from "react";
+import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-// CORRECTED: Ensure paths start with / (relative to the public folder)
-const books = [
-    { id: 1, image: '/book-1.png' }, // Correct for public/book-1.png
-    { id: 2, image: '/book-2.png' },
-    { id: 3, image: '/book-3.png' },
-    { id: 4, image: '/book-4.png' },
-    { id: 5, image: '/book-5.png' },
-    { id: 6, image: '/book-6.png' },
-    { id: 7, image: '/book-7.png' },
-];
-
-export default function BookSlider() {
-    const handleSlideClick = (id) => {
-        console.log(`Clicked on slide with ID ${id}`);
-        // Add your navigation or action logic here
-    };
+const BookSlider = () => {
+    const books = [
+        { id: 1, image: "/img/book-1.png" },
+        { id: 2, image: "/img/book-2.png" },
+        { id: 3, image: "/img/book-3.png" },
+        { id: 4, image: "/img/book-4.png" },
+        { id: 5, image: "/img/book-5.png" },
+        { id: 6, image: "/img/book-6.png" },
+        { id: 7, image: "/img/book-7.png" },
+    ];
 
     return (
-        <section className="bg-[#1e1e1e] py-12 text-white">
-            <div className="container mx-auto px-4 text-center">
-                {/* Heading */}
-                <div className="flex items-center justify-center mb-8">
+        <section className="relative w-full overflow-hidden bg-black py-5 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="flex items-center pt-3 justify-center mb-10">
                     <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
                         See Our Gallery
                     </h2>
+
                 </div>
 
-                {/* Swiper Section */}
-                <Swiper
-                    modules={[Navigation, Pagination]}
-                    spaceBetween={30}
-                    slidesPerView={1}
-                    navigation
-                    loop={true}
-                    pagination={{ clickable: true }}
-                    breakpoints={{
-                        768: { slidesPerView: 3 },
-                        1024: { slidesPerView: 5 },
-                    }}
-                    className="mySwiper"
-                >
-                    {books.map((dest) => (
-                        <SwiperSlide key={dest.id} id={`slide-${dest.id}`}>
-                            {/* Parent div is relative and has defined height */}
-                            <div
-                                id={`book-slide-${dest.id}`}
-                                className="group relative h-72 w-full rounded-lg overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                                onClick={() => handleSlideClick(dest.id)}
-                            >
-                                <Image
-                                    id={`book-image-${dest.id}`}
-                                    src={dest.image} // Uses the corrected path
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 20vw" 
-                                    style={{ objectFit: 'cover' }}
-                                    className="transition-transform duration-500 group-hover:scale-105"
-                                    alt={`Book gallery image ${dest.id}`}
-                                    onError={(e) => {
-                                        console.error(`Failed to load image: ${dest.image}`);
-                                        e.currentTarget.src = '/img/placeholder.png'; // Fallback
-                                    }}
-                                />
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-
-                {/* See More Button */}
-                <div className="mt-10">
-                    <Link href="/gallery">
-                        <button className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gray-100 text-black hover:bg-gray-200 transition-colors">
-                            See More
-                        </button>
-                    </Link>
+                {/* Slider for All Devices */}
+                <div className="mb-12 relative">
+                    <Swiper
+                        modules={[Navigation, Pagination]}
+                                 spaceBetween={20}
+                                 navigation
+                                 pagination={{ clickable: true }}
+                                 breakpoints={{
+                                   0: { slidesPerView: 1 },
+                                   640: { slidesPerView: 2 },
+                                   1024: { slidesPerView: 5 },
+                                 }}
+                    >
+                        {books.map((card) => (
+                            <SwiperSlide key={card.id}>
+                                <div className="relative group rounded-xl shadow-md overflow-hidden bg-gray-100">
+                                    <img
+                                        src={card.image}
+                                        alt={`Book ${card.id}`} // Improved alt text for accessibility
+                                        className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <div className="mt-5 text-center">
+                        <Link href="/gallery" passHref>
+                            <button className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gray-100 text-black hover:bg-gray-200 transition-colors">
+                                See More
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </section>
     );
-}
+};
+
+export default BookSlider;

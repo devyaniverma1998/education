@@ -1,98 +1,78 @@
-'use client'; // This directive makes it a client component
-import { Navigation, Pagination } from 'swiper/modules';
-import Image from 'next/image';
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+"use client";
+import React from "react";
+import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-// Your team data
-const teamMembers = [
-  {
-    name: 'John Doe',
-    role: 'CEO',
-    image: '/img/team-1.jpg', // Place your img in the public/img folder
-  },
-  {
-    name: 'Jane Smith',
-    role: 'Head of Education',
-    image: '/img/team-2.jpg',
-  },
-  {
-    name: 'Alee Brown',
-    role: 'Program Coordinator',
-    image: '/img/team-3.jpg',
-  },
-  {
-    name: 'Emily Davis',
-    role: 'Marketing Lead',
-    image: '/img/team-4.jpg',
-  },
- 
-];
+const TeamPage = () => {
+  const teamMembers = [
+    { id: 1, name: "John Doe", role: "CEO", image: "/img/team-1.jpg" },
+    { id: 2, name: "Jane Smith", role: "CTO", image: "/img/team-2.jpg" },
+    { id: 3, name: "Alex Johnson", role: "Lead Designer", image: "/img/team-3.jpg" },
+    { id: 4, name: "Maria Williams", role: "Marketing Head", image: "/img/team-4.jpg" },
+    { id: 5, name: "David Brown", role: "Developer", image: "/img/team-5.jpg" },
+  ];
 
-// Our Purpose content
-const purpose = {
-  title: 'Our Purpose',
-  description:
-    'We are dedicated to empowering individuals through education and global experiences, fostering a community of lifelong learners who contribute positively to the world. Our mission is to inspire growth, collaboration, and innovation for a better future.',
-};
-
-export default function TeamPage() {
   return (
-    <section className="bg-white py-12 text-white">
-      <div className="container mx-auto px-4">
-        {/* Team Section */}
-        <div className="mb-12 text-center">
-          <h2 className="text-2xl font-bold text-black mb-4 md:text-3xl">
-            Our People
+    <section className="relative w-full overflow-hidden bg-white py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-black">
+            Meet Our Team
           </h2>
-          <p className="text-sm text-gray-800 max-w-2xl mx-auto mb-8">
-            Meet the dedicated professionals driving our mission forward with expertise and passion.
+          <p className="text-gray-900 max-w-2xl mx-auto mt-3">
+            Our talented team is here to guide and support you every step of the way.
           </p>
-          <Swiper
-            modules={[Navigation, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation
-            loop={true}
-            pagination={{ clickable: true }}
-            breakpoints={{
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="mySwiper"
-          >
-            {teamMembers.map((member, index) => (
-              <SwiperSlide key={index}>
-                <div className="group relative h-96 w-full rounded-lg overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    className="transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 p-6">
-                    <h3 className="text-2xl font-bold text-white md:text-3xl">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-gray-300 mt-2">{member.role}</p>
-                  </div>
-                  <div className="absolute bottom-6 right-6 text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    &rarr;
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
         </div>
 
-       
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={20}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="my-12"
+        >
+          {teamMembers.map((member) => (
+            <SwiperSlide key={member.id}>
+              <div className="relative rounded-xl shadow-lg overflow-hidden bg-gray-900">
+                {/* Team Image */}
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-80 object-cover transition-transform duration-700"
+                />
+
+                {/* Overlay with Name & Role */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full bg-black/50 py-3 flex flex-col items-center justify-center">
+                  <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+                  <p className="text-gray-300 text-sm">{member.role}</p>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Optional CTA Button */}
+        <div className="mt-6 text-center">
+          <Link href="/team" passHref>
+            <button className="inline-flex items-center px-6 py-2 rounded-full text-sm font-semibold bg-gray-800 text-white hover:bg-gray-700 transition-colors">
+              See All Members
+            </button>
+          </Link>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default TeamPage;
