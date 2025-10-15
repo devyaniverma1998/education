@@ -8,27 +8,31 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Link from 'next/link';
 
-// Image data
-const destinations = [
-    { image: '/img/book-1.png' },
-    { image: '/img/book-2.png' },
-    { image: '/img/book-3.png' },
-    { image: '/img/book-4.png' },
-    { image: '/img/book-5.png' },
-    { image: '/img/book-6.png' },
-    { image: '/img/book-7.png' },
+// CORRECTED: Ensure paths start with / (relative to the public folder)
+const books = [
+    { id: 1, image: '/book-1.png' }, // Correct for public/book-1.png
+    { id: 2, image: '/book-2.png' },
+    { id: 3, image: '/book-3.png' },
+    { id: 4, image: '/book-4.png' },
+    { id: 5, image: '/book-5.png' },
+    { id: 6, image: '/book-6.png' },
+    { id: 7, image: '/book-7.png' },
 ];
 
 export default function BookSlider() {
+    const handleSlideClick = (id) => {
+        console.log(`Clicked on slide with ID ${id}`);
+        // Add your navigation or action logic here
+    };
+
     return (
         <section className="bg-[#1e1e1e] py-12 text-white">
             <div className="container mx-auto px-4 text-center">
                 {/* Heading */}
-
                 <div className="flex items-center justify-center mb-8">
                     <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-                        See Our Gallery</h2>
-
+                        See Our Gallery
+                    </h2>
                 </div>
 
                 {/* Swiper Section */}
@@ -45,15 +49,26 @@ export default function BookSlider() {
                     }}
                     className="mySwiper"
                 >
-                    {destinations.map((dest, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="group relative h-56 sm:h-64 w-full rounded-lg overflow-hidden">
+                    {books.map((dest) => (
+                        <SwiperSlide key={dest.id} id={`slide-${dest.id}`}>
+                            {/* Parent div is relative and has defined height */}
+                            <div
+                                id={`book-slide-${dest.id}`}
+                                className="group relative h-72 w-full rounded-lg overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
+                                onClick={() => handleSlideClick(dest.id)}
+                            >
                                 <Image
-                                    src={dest.image}
+                                    id={`book-image-${dest.id}`}
+                                    src={dest.image} // Uses the corrected path
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 20vw" 
                                     style={{ objectFit: 'cover' }}
-                                    className="transition-transform duration-500 group-hover:scale-110"
-                                    alt="Book gallery image"
+                                    className="transition-transform duration-500 group-hover:scale-105"
+                                    alt={`Book gallery image ${dest.id}`}
+                                    onError={(e) => {
+                                        console.error(`Failed to load image: ${dest.image}`);
+                                        e.currentTarget.src = '/img/placeholder.png'; // Fallback
+                                    }}
                                 />
                             </div>
                         </SwiperSlide>
